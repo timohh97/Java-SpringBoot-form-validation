@@ -11,23 +11,23 @@ import javax.validation.Valid;
 @org.springframework.stereotype.Controller
 public class Controller {
 
-    @GetMapping("/login")
-    public String showForm(User user)
+    @GetMapping("/contact")
+    public String showForm(ContactMessage contactMessage)
     {
-        return "login";
+        return "contact";
     }
 
-    @PostMapping("/login")
-    public String validate(@Valid User user, Errors er, Model model)
+    @PostMapping("/contact")
+    public String validate(@Valid  ContactMessage contactMessage, Errors er, Model model)
     {
         if(er.hasErrors())
         {
-            return "login";
+            return "contact";
         }
         else
         {
-            model.addAttribute("message","Login successfully");
-            return "login";
+            model.addAttribute("message","Thank you for your message.");
+            return "contact";
         }
 
     }
